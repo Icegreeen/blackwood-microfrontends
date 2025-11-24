@@ -1,5 +1,9 @@
 # 🚀 Microfrontend with Module Federation
 
+<p>
+   <img src="apps/host/public/back.png" alt='back' />
+</p>
+
 Project demonstrating microfrontend architecture using **Module Federation** - industry standard for integrating multiple frameworks into a single application.
 
 ## 📦 Structure
