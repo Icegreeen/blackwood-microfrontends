@@ -1,64 +1,64 @@
-# 🚀 Microfrontend com Module Federation
+# 🚀 Microfrontend with Module Federation
 
-Projeto demonstrando arquitetura de microfrontends usando **Module Federation** - padrão da indústria para integrar múltiplos frameworks em uma única aplicação.
+Project demonstrating microfrontend architecture using **Module Federation** - industry standard for integrating multiple frameworks into a single application.
 
-## 📦 Estrutura
+## 📦 Structure
 
 ```
 apps/
-├── host/          # Next.js 15 + React 19 (aplicação principal)
-├── vue-mars/      # Vue 3 + Vite (microfrontend remoto)
-└── svelte-moon/   # Svelte 4 + Vite (microfrontend remoto)
+├── host/          # Next.js 15 + React 19 (main application)
+├── vue-mars/      # Vue 3 + Vite (remote microfrontend)
+└── svelte-moon/   # Svelte 4 + Vite (remote microfrontend)
 ```
 
-## 🛠️ Stack Tecnológica
+## 🛠️ Tech Stack
 
 - **Host**: Next.js 15 + React 19
-- **Remotes**: Vue 3 + Svelte 4 (ambos com Vite)
+- **Remotes**: Vue 3 + Svelte 4 (both with Vite)
 - **Module Federation**: `@module-federation/vite`
 - **Monorepo**: pnpm workspaces
 
-## 🚀 Como Rodar
+## 🚀 How to Run
 
-### Pré-requisitos
+### Prerequisites
 
 ```bash
-# Instalar dependências
+# Install dependencies
 pnpm install
 ```
 
-### Desenvolvimento
+### Development
 
-Abra **3 terminais** e execute:
+Open **3 terminals** and run:
 
-**Terminal 1 - Vue Mars (porta 3001):**
+**Terminal 1 - Vue Mars (port 3001):**
 ```bash
 pnpm dev:mars
 ```
 
-**Terminal 2 - Svelte Moon (porta 3002):**
+**Terminal 2 - Svelte Moon (port 3002):**
 ```bash
 pnpm dev:moon
 ```
 
-**Terminal 3 - Host (porta 3000):**
+**Terminal 3 - Host (port 3000):**
 ```bash
 pnpm dev
 ```
 
-**Acesse:**
-- `http://localhost:3000` - Página inicial
-- `http://localhost:3000/mars` - Microfrontend Vue
-- `http://localhost:3000/moon` - Microfrontend Svelte
+**Access:**
+- `http://localhost:3000` - Home page
+- `http://localhost:3000/mars` - Vue microfrontend
+- `http://localhost:3000/moon` - Svelte microfrontend
 
-### Produção
+### Production
 
-**1. Build de todos os projetos:**
+**1. Build all projects:**
 ```bash
 pnpm build
 ```
 
-**2. Inicie os servidores (3 terminais):**
+**2. Start servers (3 terminals):**
 
 **Terminal 1 - Vue Mars:**
 ```bash
@@ -75,35 +75,35 @@ pnpm preview:moon
 pnpm start
 ```
 
-**Acesse:** `http://localhost:3000`
+**Access:** `http://localhost:3000`
 
-## 🏗️ Como Funciona
+## 🏗️ How It Works
 
-1. **Remotes** (Vue Mars e Svelte Moon) expõem componentes via `remoteEntry.js` usando Module Federation
-2. **Host** (Next.js) carrega `remoteEntry.js` dinamicamente em runtime
-3. Componentes Vue/Svelte são montados dentro do React host
-4. **Fallback automático** para iframe se Module Federation falhar
+1. **Remotes** (Vue Mars and Svelte Moon) expose components via `remoteEntry.js` using Module Federation
+2. **Host** (Next.js) loads `remoteEntry.js` dynamically at runtime
+3. Vue/Svelte components are mounted inside the React host
+4. **Automatic fallback** to iframe if Module Federation fails
 
-### Fluxo de Carregamento
+### Loading Flow
 
 ```
-Host renderiza → Carrega iframe (fallback) → Tenta Module Federation → 
-Carrega remoteEntry.js → Obtém bootstrap → Monta componente → Remove iframe
+Host renders → Loads iframe (fallback) → Tries Module Federation → 
+Loads remoteEntry.js → Gets bootstrap → Mounts component → Removes iframe
 ```
 
-## 📚 Conceitos Demonstrados
+## 📚 Demonstrated Concepts
 
-- ✅ **Module Federation** - Padrão da indústria para microfrontends
-- ✅ **Multi-framework** - React, Vue e Svelte na mesma aplicação
-- ✅ **Dynamic Loading** - Carregamento de módulos em runtime
-- ✅ **Shared Dependencies** - Compartilhamento de libs (singleton)
-- ✅ **Fallback Strategy** - Iframe como fallback se MF falhar
+- ✅ **Module Federation** - Industry standard for microfrontends
+- ✅ **Multi-framework** - React, Vue and Svelte in the same application
+- ✅ **Dynamic Loading** - Runtime module loading
+- ✅ **Shared Dependencies** - Library sharing (singleton)
+- ✅ **Fallback Strategy** - Iframe as fallback if MF fails
 
-## 📖 Documentação Detalhada
+## 📖 Detailed Documentation
 
-Para entender melhor as configurações de Module Federation, veja:
-- `apps/host/lib/microfrontends/README.md` - Explicação detalhada das configurações
+To better understand Module Federation configurations, see:
+- `apps/host/lib/microfrontends/README.md` - Detailed explanation of configurations
 
 ---
 
-**Desenvolvido com Module Federation**
+**Built with Module Federation**
