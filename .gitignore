@@ -39,4 +39,3 @@ next-env.d.ts
 # Apps removidos (pode deletar manualmente)
 apps/vanilla-research/
 apps/nextjs-spacex/
-apps/svelte-moon/
