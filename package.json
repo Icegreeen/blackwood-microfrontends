@@ -1,0 +1,15 @@
+{
+  "name": "portfolio-microfrontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter @portfolio/host dev",
+    "dev:mars": "pnpm --filter @portfolio/vue-mars dev",
+    "dev:moon": "pnpm --filter @portfolio/svelte-moon dev",
+    "build": "pnpm --filter @portfolio/vue-mars build && pnpm --filter @portfolio/svelte-moon build && pnpm --filter @portfolio/host build",
+    "preview:mars": "pnpm --filter @portfolio/vue-mars preview",
+    "preview:moon": "pnpm --filter @portfolio/svelte-moon preview",
+    "start": "pnpm --filter @portfolio/host start"
+  },
+  "packageManager": "pnpm@10.18.3+sha512.bbd16e6d7286fd7e01f6b3c0b3c932cda2965c06a908328f74663f10a9aea51f1129eea615134bf992831b009eabe167ecb7008b597f40ff9bc75946aadfb08d"
+}
